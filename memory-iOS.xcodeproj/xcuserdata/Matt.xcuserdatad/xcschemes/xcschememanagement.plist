@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>SharedCode.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>memory-extension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>memory-iOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +22,26 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C946DAAA1EBA598F004FB76F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C946DABE1EBA5CEA004FB76F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C946DAD01EBA5DA6004FB76F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C946DAE11EBA5E1D004FB76F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C9538C6A1E907FEC005F8237</key>
 		<dict>
 			<key>primary</key>
