@@ -14,6 +14,9 @@
 		C946DAE91EBA5E1D004FB76F /* SharedCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C946DAE21EBA5E1D004FB76F /* SharedCode.framework */; };
 		C946DAEA1EBA5E1D004FB76F /* SharedCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C946DAE21EBA5E1D004FB76F /* SharedCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C946DAEE1EBA5E5B004FB76F /* SharedCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C946DAE21EBA5E1D004FB76F /* SharedCode.framework */; };
+		C946DAFA1EBABE72004FB76F /* TermProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946DAF91EBABE72004FB76F /* TermProtocol.swift */; };
+		C946DAFE1EBAC122004FB76F /* JapaneseTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946DAFD1EBAC122004FB76F /* JapaneseTerm.swift */; };
+		C946DB001EBAC307004FB76F /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946DAFF1EBAC307004FB76F /* CardModel.swift */; };
 		C9538C6F1E907FEC005F8237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9538C6E1E907FEC005F8237 /* AppDelegate.swift */; };
 		C9538C711E907FEC005F8237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9538C701E907FEC005F8237 /* ViewController.swift */; };
 		C9538C741E907FEC005F8237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9538C721E907FEC005F8237 /* Main.storyboard */; };
@@ -71,6 +74,11 @@
 		C946DAE21EBA5E1D004FB76F /* SharedCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C946DAE41EBA5E1D004FB76F /* SharedCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedCode.h; sourceTree = "<group>"; };
 		C946DAE51EBA5E1D004FB76F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C946DAF21EBAB104004FB76F /* memory-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "memory-iOS.entitlements"; sourceTree = "<group>"; };
+		C946DAF31EBAB139004FB76F /* memory-extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "memory-extension.entitlements"; sourceTree = "<group>"; };
+		C946DAF91EBABE72004FB76F /* TermProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermProtocol.swift; sourceTree = "<group>"; };
+		C946DAFD1EBAC122004FB76F /* JapaneseTerm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JapaneseTerm.swift; sourceTree = "<group>"; };
+		C946DAFF1EBAC307004FB76F /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		C9538C6B1E907FEC005F8237 /* memory-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "memory-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9538C6E1E907FEC005F8237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9538C701E907FEC005F8237 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +118,7 @@
 		C946DAAC1EBA598F004FB76F /* memory-extension */ = {
 			isa = PBXGroup;
 			children = (
+				C946DAF31EBAB139004FB76F /* memory-extension.entitlements */,
 				C946DAAD1EBA598F004FB76F /* ActionViewController.swift */,
 				C946DAAF1EBA598F004FB76F /* MainInterface.storyboard */,
 				C946DAB21EBA598F004FB76F /* Info.plist */,
@@ -120,10 +129,29 @@
 		C946DAE31EBA5E1D004FB76F /* SharedCode */ = {
 			isa = PBXGroup;
 			children = (
+				C946DB011EBAC92C004FB76F /* Common */,
+				C946DAF61EBAB6C9004FB76F /* Languages */,
 				C946DAE41EBA5E1D004FB76F /* SharedCode.h */,
 				C946DAE51EBA5E1D004FB76F /* Info.plist */,
 			);
 			path = SharedCode;
+			sourceTree = "<group>";
+		};
+		C946DAF61EBAB6C9004FB76F /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				C946DAFD1EBAC122004FB76F /* JapaneseTerm.swift */,
+			);
+			name = Languages;
+			sourceTree = "<group>";
+		};
+		C946DB011EBAC92C004FB76F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C946DAF91EBABE72004FB76F /* TermProtocol.swift */,
+				C946DAFF1EBAC307004FB76F /* CardModel.swift */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		C9538C621E907FEC005F8237 = {
@@ -149,6 +177,7 @@
 		C9538C6D1E907FEC005F8237 /* memory-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C946DAF21EBAB104004FB76F /* memory-iOS.entitlements */,
 				C9538C6E1E907FEC005F8237 /* AppDelegate.swift */,
 				C9538C701E907FEC005F8237 /* ViewController.swift */,
 				C9538C721E907FEC005F8237 /* Main.storyboard */,
@@ -243,16 +272,27 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = VQXELCH5FM;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					C946DAE11EBA5E1D004FB76F = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = VQXELCH5FM;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					C9538C6A1E907FEC005F8237 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = VQXELCH5FM;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -317,6 +357,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C946DAFE1EBAC122004FB76F /* JapaneseTerm.swift in Sources */,
+				C946DAFA1EBABE72004FB76F /* TermProtocol.swift in Sources */,
+				C946DB001EBAC307004FB76F /* CardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +418,7 @@
 		C946DAB61EBA598F004FB76F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "memory-extension/memory-extension.entitlements";
 				DEVELOPMENT_TEAM = VQXELCH5FM;
 				INFOPLIST_FILE = "memory-extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -388,6 +432,7 @@
 		C946DAB71EBA598F004FB76F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "memory-extension/memory-extension.entitlements";
 				DEVELOPMENT_TEAM = VQXELCH5FM;
 				INFOPLIST_FILE = "memory-extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -402,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -415,6 +461,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.BuildThings.SharedCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -426,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -544,6 +592,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "memory-iOS/memory-iOS.entitlements";
 				DEVELOPMENT_TEAM = VQXELCH5FM;
 				INFOPLIST_FILE = "memory-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -558,6 +607,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "memory-iOS/memory-iOS.entitlements";
 				DEVELOPMENT_TEAM = VQXELCH5FM;
 				INFOPLIST_FILE = "memory-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
