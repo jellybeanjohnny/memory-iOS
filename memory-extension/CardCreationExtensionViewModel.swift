@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CardCreationViewModelDelegate: class {
-    func setFront(usingText: String)
+    func setFront(usingText text: String)
 }
 
 class CardCreationExtensionViewModel {
@@ -17,7 +17,7 @@ class CardCreationExtensionViewModel {
     weak var delegate: CardCreationViewModelDelegate?
     
     
-    func parseSelectedText(extensionContext: NSExtensionContext) {
+    func parse(extensionContext: NSExtensionContext) {
         parser.delegate = self
         parser.parse(extensionContext: extensionContext)
     }

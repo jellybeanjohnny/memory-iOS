@@ -27,13 +27,18 @@ class ExtensionItemParser {
     fileprivate func loadItem(usingProvider provider: NSItemProvider) {
         if provider.hasItemConformingToTypeIdentifier(kUTTypeText as String) {
             provider.loadItem(forTypeIdentifier: kUTTypeText as String, options: nil, completionHandler: { [unowned self] (result, error) in
-                if let text = result as? String {
-                    self.delegate?.didParse(selectedText: text)
+                
+                DispatchQueue.main.async {
+                    if let text = result as? String {
+                        self.delegate?.didParse(selectedText: text)
+                    }
+                    
+                    if let error = error {
+                        self.delegate?.parserDidFail(withError: error)
+                    }
                 }
                 
-                if let error = error {
-                    self.delegate?.parserDidFail(withError: error)
-                }
+
             })
         }
     }

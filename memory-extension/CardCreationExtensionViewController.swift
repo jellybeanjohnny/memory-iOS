@@ -13,18 +13,19 @@ class CardCreationExtensionViewController: UIViewController {
     
     var viewModel = CardCreationExtensionViewModel()
     // FrontTextView
-    // BackTableViewController
+    @IBOutlet weak var frontTextView: UITextView!
+    // BackTableView
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.delegate = self
         if let context = self.extensionContext {
-            viewModel.parseSelectedText(extensionContext: context)
+            viewModel.parse(extensionContext: context)
         }
     }
     
-    
-
     @IBAction func done() {
         dismiss()
     }
@@ -35,8 +36,9 @@ class CardCreationExtensionViewController: UIViewController {
 }
 
 extension CardCreationExtensionViewController: CardCreationViewModelDelegate {
-    func setFront(usingText: String) {
+    func setFront(usingText text: String) {
         // set the textview's front text
+        frontTextView.text = text
     }
 }
 
