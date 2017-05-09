@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C946DAAE1EBA598F004FB76F /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946DAAD1EBA598F004FB76F /* ActionViewController.swift */; };
+		C946DAAE1EBA598F004FB76F /* CardCreationExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946DAAD1EBA598F004FB76F /* CardCreationExtensionViewController.swift */; };
 		C946DAB11EBA598F004FB76F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C946DAAF1EBA598F004FB76F /* MainInterface.storyboard */; };
 		C946DAB51EBA598F004FB76F /* memory-extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C946DAAB1EBA598F004FB76F /* memory-extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C946DAE61EBA5E1D004FB76F /* SharedCode.h in Headers */ = {isa = PBXBuildFile; fileRef = C946DAE41EBA5E1D004FB76F /* SharedCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -17,11 +17,14 @@
 		C946DAFA1EBABE72004FB76F /* TermProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946DAF91EBABE72004FB76F /* TermProtocol.swift */; };
 		C946DAFE1EBAC122004FB76F /* JapaneseTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946DAFD1EBAC122004FB76F /* JapaneseTerm.swift */; };
 		C946DB001EBAC307004FB76F /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946DAFF1EBAC307004FB76F /* CardModel.swift */; };
+		C946DB031EBAC995004FB76F /* EnglishTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946DB021EBAC995004FB76F /* EnglishTerm.swift */; };
 		C9538C6F1E907FEC005F8237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9538C6E1E907FEC005F8237 /* AppDelegate.swift */; };
 		C9538C711E907FEC005F8237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9538C701E907FEC005F8237 /* ViewController.swift */; };
 		C9538C741E907FEC005F8237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9538C721E907FEC005F8237 /* Main.storyboard */; };
 		C9538C761E907FEC005F8237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9538C751E907FEC005F8237 /* Assets.xcassets */; };
 		C9538C791E907FEC005F8237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9538C771E907FEC005F8237 /* LaunchScreen.storyboard */; };
+		C95BE1731EC27ADA004F2743 /* ExtensionItemParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BE1721EC27ADA004F2743 /* ExtensionItemParser.swift */; };
+		C95BE1751EC280F1004F2743 /* CardCreationExtensionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BE1741EC280F1004F2743 /* CardCreationExtensionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +71,7 @@
 
 /* Begin PBXFileReference section */
 		C946DAAB1EBA598F004FB76F /* memory-extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "memory-extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C946DAAD1EBA598F004FB76F /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		C946DAAD1EBA598F004FB76F /* CardCreationExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCreationExtensionViewController.swift; sourceTree = "<group>"; };
 		C946DAB01EBA598F004FB76F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		C946DAB21EBA598F004FB76F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C946DAE21EBA5E1D004FB76F /* SharedCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +82,7 @@
 		C946DAF91EBABE72004FB76F /* TermProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermProtocol.swift; sourceTree = "<group>"; };
 		C946DAFD1EBAC122004FB76F /* JapaneseTerm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JapaneseTerm.swift; sourceTree = "<group>"; };
 		C946DAFF1EBAC307004FB76F /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		C946DB021EBAC995004FB76F /* EnglishTerm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnglishTerm.swift; sourceTree = "<group>"; };
 		C9538C6B1E907FEC005F8237 /* memory-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "memory-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9538C6E1E907FEC005F8237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9538C701E907FEC005F8237 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 		C9538C751E907FEC005F8237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9538C781E907FEC005F8237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9538C7A1E907FEC005F8237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C95BE1721EC27ADA004F2743 /* ExtensionItemParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionItemParser.swift; sourceTree = "<group>"; };
+		C95BE1741EC280F1004F2743 /* CardCreationExtensionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCreationExtensionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,9 +125,11 @@
 			isa = PBXGroup;
 			children = (
 				C946DAF31EBAB139004FB76F /* memory-extension.entitlements */,
-				C946DAAD1EBA598F004FB76F /* ActionViewController.swift */,
+				C946DAAD1EBA598F004FB76F /* CardCreationExtensionViewController.swift */,
+				C95BE1741EC280F1004F2743 /* CardCreationExtensionViewModel.swift */,
 				C946DAAF1EBA598F004FB76F /* MainInterface.storyboard */,
 				C946DAB21EBA598F004FB76F /* Info.plist */,
+				C95BE1721EC27ADA004F2743 /* ExtensionItemParser.swift */,
 			);
 			path = "memory-extension";
 			sourceTree = "<group>";
@@ -141,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				C946DAFD1EBAC122004FB76F /* JapaneseTerm.swift */,
+				C946DB021EBAC995004FB76F /* EnglishTerm.swift */,
 			);
 			name = Languages;
 			sourceTree = "<group>";
@@ -349,7 +358,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C946DAAE1EBA598F004FB76F /* ActionViewController.swift in Sources */,
+				C946DAAE1EBA598F004FB76F /* CardCreationExtensionViewController.swift in Sources */,
+				C95BE1731EC27ADA004F2743 /* ExtensionItemParser.swift in Sources */,
+				C95BE1751EC280F1004F2743 /* CardCreationExtensionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +370,7 @@
 			files = (
 				C946DAFE1EBAC122004FB76F /* JapaneseTerm.swift in Sources */,
 				C946DAFA1EBABE72004FB76F /* TermProtocol.swift in Sources */,
+				C946DB031EBAC995004FB76F /* EnglishTerm.swift in Sources */,
 				C946DB001EBAC307004FB76F /* CardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,6 +639,7 @@
 				C946DAB71EBA598F004FB76F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C946DAEB1EBA5E1D004FB76F /* Build configuration list for PBXNativeTarget "SharedCode" */ = {
 			isa = XCConfigurationList;
@@ -635,6 +648,7 @@
 				C946DAED1EBA5E1D004FB76F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9538C661E907FEC005F8237 /* Build configuration list for PBXProject "memory-iOS" */ = {
 			isa = XCConfigurationList;
