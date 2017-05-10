@@ -8,37 +8,41 @@
 
 import UIKit
 
-protocol CardCreationViewModelDelegate: class {
+public protocol CardCreationViewModelDelegate: class {
     func setFront(usingText text: String)
 }
 
-class CardCreationExtensionViewModel {
+public class CardCreationExtensionViewModel {
     
     fileprivate let parser = ExtensionItemParser()
     
-    var originalText: String?
-    weak var delegate: CardCreationViewModelDelegate?
+    public var originalText: String?
+    public weak var delegate: CardCreationViewModelDelegate?
     
-    func parse(extensionContext: NSExtensionContext) {
+    public init() {
+        
+    }
+    
+    public func parse(extensionContext: NSExtensionContext) {
         parser.delegate = self
         parser.parse(extensionContext: extensionContext)
     }
     
-    func defineSelectedText(inTextView textView: UITextView) {
+    public func defineSelectedText(inTextView textView: UITextView) {
         textView.highlightSelectedText()
         let termToDefine = textView.selectedText
         print("Should define: \(termToDefine)")
     }
     
-    func reset(textView: UITextView) {
+    public func reset(textView: UITextView) {
         textView.text = originalText
     }
     
-    func clearTableView() {
+    public func clearTableView() {
         
     }
     
-    func createCard(usingFrontText: NSAttributedString) {
+    public func createCard(usingFrontText: NSAttributedString) {
         
     }
 }

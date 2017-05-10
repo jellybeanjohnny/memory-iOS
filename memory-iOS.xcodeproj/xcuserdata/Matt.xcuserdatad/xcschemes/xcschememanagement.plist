@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>SharedCodeTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>memory-extension.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -43,6 +48,16 @@
 			<true/>
 		</dict>
 		<key>C9538C6A1E907FEC005F8237</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C95BE17D1EC2A9C2004F2743</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C96EFF891EC2BA6100E21E22</key>
 		<dict>
 			<key>primary</key>
 			<true/>
