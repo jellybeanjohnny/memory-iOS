@@ -1,0 +1,116 @@
+{
+    "items": [
+              {
+              "_id": "58e0807b65ee33cf670c40b5",
+              "id": 1605210,
+              "sense": [
+                        {
+                        "gloss": [
+                                  {
+                                  "lang": "eng",
+                                  "text": "mole (Talpidae spp., esp. the small Japanese mole, Mogera imaizumii)"
+                                  }
+                                  ],
+                        "languageSource": [],
+                        "info": [],
+                        "misc": [
+                                 "?"
+                                 ],
+                        "dialect": [],
+                        "field": [],
+                        "antonym": [],
+                        "related": [],
+                        "appliesToKana": [
+                                          "*"
+                                          ],
+                        "appliesToKanji": [
+                                           "*"
+                                           ],
+                        "partOfSpeech": [
+                                         "?"
+                                         ]
+                        }
+                        ],
+              "kana": [
+                       {
+                       "common": false,
+                       "text": "もぐら",
+                       "appliesToKanji": [
+                                          "*"
+                                          ],
+                       "tags": [
+                                "?"
+                                ]
+                       },
+                       {
+                       "common": false,
+                       "text": "むぐらもち",
+                       "appliesToKanji": [
+                                          "*"
+                                          ],
+                       "tags": [
+                                "?"
+                                ]
+                       },
+                       {
+                       "common": false,
+                       "text": "むぐら",
+                       "appliesToKanji": [
+                                          "*"
+                                          ],
+                       "tags": [
+                                "?",
+                                "?"
+                                ]
+                       },
+                       {
+                       "common": false,
+                       "text": "もぐらもち",
+                       "appliesToKanji": [
+                                          "*"
+                                          ],
+                       "tags": [
+                                "?",
+                                "?"
+                                ]
+                       },
+                       {
+                       "common": false,
+                       "text": "どりゅう",
+                       "appliesToKanji": [
+                                          "*"
+                                          ],
+                       "tags": [
+                                "?"
+                                ]
+                       },
+                       {
+                       "common": false,
+                       "text": "モグラ",
+                       "appliesToKanji": [],
+                       "tags": []
+                       },
+                       {
+                       "common": false,
+                       "text": "モグラモチ",
+                       "appliesToKanji": [],
+                       "tags": []
+                       }
+                       ],
+              "kanji": [
+                        {
+                        "common": false,
+                        "text": "土竜",
+                        "tags": []
+                        },
+                        {
+                        "common": false,
+                        "text": "土龍",
+                        "tags": [
+                                 "?"
+                                 ]
+                        }
+                        ]
+              }
+              ]
+}

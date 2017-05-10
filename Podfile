@@ -31,5 +31,7 @@ abstract_target 'Tests' do
 
     pod 'Quick'
     pod 'Nimble'
+    pod 'OHHTTPStubs/Swift'
+    pod 'OHHTTPStubs/OHPathHelpers'
 end
 

@@ -18,6 +18,8 @@ public class CardCreationExtensionViewModel {
     
     public var originalText: String?
     public weak var delegate: CardCreationViewModelDelegate?
+    public var items: [TermProtocol] = []
+    
     
     public init() {
         
@@ -31,8 +33,9 @@ public class CardCreationExtensionViewModel {
     public func defineSelectedText(inTextView textView: UITextView) {
         textView.highlightSelectedText()
         let termToDefine = textView.selectedText
-        print("Should define: \(termToDefine)")
+        define(searchTerm: termToDefine)
     }
+    
     
     public func reset(textView: UITextView) {
         textView.text = originalText
@@ -43,6 +46,11 @@ public class CardCreationExtensionViewModel {
     }
     
     public func createCard(usingFrontText: NSAttributedString) {
+        
+    }
+    
+    //MARK: - Internal
+    func define(searchTerm: String) {
         
     }
 }

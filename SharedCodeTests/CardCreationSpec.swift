@@ -9,6 +9,7 @@
 import UIKit
 import Quick
 import Nimble
+
 @testable import SharedCode
 
 class CardCreationSpec: QuickSpec {
@@ -17,23 +18,33 @@ class CardCreationSpec: QuickSpec {
             
             let cardCreationViewModel = CardCreationExtensionViewModel()
             cardCreationViewModel.originalText = "みんなの土竜たちが土の穴から出てきました。"
-            let spy = CardCreationSpy()
-            cardCreationViewModel.delegate = spy
             
             context("Pushing the define word button") {
-                it("should parse the selected word") {
+                it("should parse the selected item") {
                     let textView = UITextView()
                     textView.text = cardCreationViewModel.originalText
                     textView.selectedRange = NSRange(location: 4, length: 2)
                     expect(textView.selectedText).to(equal("土竜"))
-                }
-                it("should lookup the definition for the word") {
-                    // Stub
+                    expect(textView.selectedText).notTo(equal("Wrong Word"))
                 }
                 
-                it("should add the definition to the back table view") {
-                    // stub
+                
+                it("should lookup the definition for the item and return a correctly parsed definition object") {
+                    let termToDefine = "土竜"
+                    let hijacker = NetworkHijacker()
+                    hijacker.hijackDefineRequest(toHost: "http://localhost:8080/search?term=\(termToDefine)")
+                    cardCreationViewModel.define(searchTerm: termToDefine)
+                    
+                    let mockItem = Item()
+                    expect(cardCreationViewModel.items.count).toEventually(equal(1))
+                    
+                    if let item = cardCreationViewModel.items.first {
+                        expect(item.term).toEventually(equal(mockItem.term))
+                        expect(item.definition).toEventually(equal(mockItem.definition))
+                    }
                 }
+                
+
             }
             
             
@@ -53,15 +64,15 @@ class CardCreationSpec: QuickSpec {
                 }
                 
                 it("should clear the back table view") {
-                    // Stub
+                    let itemCount = cardCreationViewModel.items.count
+                    expect(itemCount).to(equal(0))
                 }
             }
         }
     }
 }
 
-class CardCreationSpy: CardCreationViewModelDelegate {
-    func setFront(usingText text: String) {
-        // stub
-    }
+struct Item: TermProtocol {
+    var term: String = "土竜"
+    var definition: String = ""
 }
