@@ -9,15 +9,22 @@
 import Foundation
 
 public struct JapaneseTerm: TermProtocol {
-    let kana: String
-    let kanji: String
-    let termDefinition: String
+    let kana: [String]
+    let kanji: [String]
+    let sense: [String]
     
     public var term: String {
-        return "\(kanji) (\(kana))"
+        let kanjiString = reduceToString(array: kanji)
+        let kanaString = reduceToString(array: kana)
+        return "\(kanjiString), (\(kanaString))"
     }
     
     public var definition: String {
-        return termDefinition
+        return reduceToString(array: sense)
+    }
+    
+    func reduceToString(array: [String]) -> String {
+        let result = array.joined(separator: ", ")
+        return result
     }
 }

@@ -15,6 +15,7 @@ public protocol CardCreationViewModelDelegate: class {
 public class CardCreationExtensionViewModel {
     
     fileprivate let parser = ExtensionItemParser()
+    fileprivate var searchClient = DictionarySearchAPIClient()
     
     public var originalText: String?
     public weak var delegate: CardCreationViewModelDelegate?
@@ -42,7 +43,8 @@ public class CardCreationExtensionViewModel {
     }
     
     public func clearTableView() {
-        
+        items.removeAll()
+        // reload tableview
     }
     
     public func createCard(usingFrontText: NSAttributedString) {
@@ -51,10 +53,12 @@ public class CardCreationExtensionViewModel {
     
     //MARK: - Internal
     func define(searchTerm: String) {
-        
+        searchClient.delegate = self
+        searchClient.search(forItem: searchTerm, language: .japanese)
     }
 }
 
+// MARK: - Extension Item Parsing Delegate Methods
 extension CardCreationExtensionViewModel: ExtensionItemParserDelegate {
     func didParse(selectedText: String) {
         originalText = selectedText
@@ -63,5 +67,17 @@ extension CardCreationExtensionViewModel: ExtensionItemParserDelegate {
     
     func parserDidFail(withError error: Error) {
         print(error)
+    }
+}
+
+//MARK: - Search Delegate Methods
+extension CardCreationExtensionViewModel: DictionarySearchDelegate {
+    func searchDidComplete(term: TermProtocol) {
+        print("Search Completed with term: \(term)")
+        items.append(term)
+    }
+    
+    func searchDidFail(withError error: Error) {
+        print("Search Failed with error: \(error.localizedDescription)")
     }
 }

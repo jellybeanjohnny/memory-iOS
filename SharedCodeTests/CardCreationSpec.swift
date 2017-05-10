@@ -32,7 +32,7 @@ class CardCreationSpec: QuickSpec {
                 it("should lookup the definition for the item and return a correctly parsed definition object") {
                     let termToDefine = "土竜"
                     let hijacker = NetworkHijacker()
-                    hijacker.hijackDefineRequest(toHost: "http://localhost:8080/search?term=\(termToDefine)")
+                    hijacker.hijackDefineRequest(toHost: "https://5bfa5988.ngrok.io/search?term=\(termToDefine)")
                     cardCreationViewModel.define(searchTerm: termToDefine)
                     
                     let mockItem = Item()
@@ -47,13 +47,6 @@ class CardCreationSpec: QuickSpec {
 
             }
             
-            
-            context("pushing the create button") {
-                it("Should generate the appropriate card model") {
-                    // stub
-                }
-            }
-            
             context("Pushing the reset button") {
                 it ("should reset the front text to the original") {
                     let textView = UITextView()
@@ -64,15 +57,22 @@ class CardCreationSpec: QuickSpec {
                 }
                 
                 it("should clear the back table view") {
+                    cardCreationViewModel.clearTableView()
                     let itemCount = cardCreationViewModel.items.count
                     expect(itemCount).to(equal(0))
                 }
+            }
+        }
+        
+        context("pushing the create button") {
+            it("Should generate the appropriate card model") {
+                // stub
             }
         }
     }
 }
 
 struct Item: TermProtocol {
-    var term: String = "土竜"
-    var definition: String = ""
+    var term: String = "土竜, 土龍, (もぐら, むぐらもち, むぐら, もぐらもち, どりゅう, モグラ, モグラモチ)"
+    var definition: String = "mole (Talpidae spp., esp. the small Japanese mole, Mogera imaizumii)"
 }
