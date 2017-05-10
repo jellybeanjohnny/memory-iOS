@@ -16,6 +16,7 @@ class CardCreationExtensionViewModel {
     
     fileprivate let parser = ExtensionItemParser()
     
+    var originalText: String?
     weak var delegate: CardCreationViewModelDelegate?
     
     func parse(extensionContext: NSExtensionContext) {
@@ -23,21 +24,28 @@ class CardCreationExtensionViewModel {
         parser.parse(extensionContext: extensionContext)
     }
     
-    func highlightSelectedText(inTextView textView: UITextView) {
-        let range = textView.selectedRange
-        let text = NSMutableAttributedString(attributedString: textView.attributedText)
-        let attributes = [
-            NSForegroundColorAttributeName : UIColor.red,
-            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 20.0)]
-        text.addAttributes(attributes, range: range)
-        textView.attributedText = text
+    func defineSelectedText(inTextView textView: UITextView) {
+        textView.highlightSelectedText()
+        let termToDefine = textView.selectedText
+        print("Should define: \(termToDefine)")
     }
     
-
+    func reset(textView: UITextView) {
+        textView.text = originalText
+    }
+    
+    func clearTableView() {
+        
+    }
+    
+    func createCard(usingFrontText: NSAttributedString) {
+        
+    }
 }
 
 extension CardCreationExtensionViewModel: ExtensionItemParserDelegate {
     func didParse(selectedText: String) {
+        originalText = selectedText
         delegate?.setFront(usingText: selectedText)
     }
     

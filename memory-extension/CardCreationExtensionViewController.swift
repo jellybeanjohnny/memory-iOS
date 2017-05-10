@@ -18,11 +18,17 @@ class CardCreationExtensionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addDefineMenu()
         
         viewModel.delegate = self
         if let context = self.extensionContext {
             viewModel.parse(extensionContext: context)
         }
+    }
+    
+    func addDefineMenu() {
+        let defineMenuItem = UIMenuItem(title: "Define", action: #selector(defineButtonPushed))
+        UIMenuController.shared.menuItems = [defineMenuItem]
     }
     
     func dismiss() {
@@ -36,14 +42,23 @@ class CardCreationExtensionViewController: UIViewController {
     
     @IBAction func resetButtonPushed() {
         print("Reset button pushed")
+        // should clear an edits done to the front of the card
+        viewModel.reset(textView: frontTextView)
+        // should clear the back tableview
+        viewModel.clearTableView()
+        
     }
     
     @IBAction func createCardButtonPushed() {
         print("Create card button pushed")
+        // should create a single card
+        viewModel.createCard(usingFrontText: frontTextView.attributedText)
     }
     
     @IBAction func defineButtonPushed() {
         print("Define button pushed")
+        // should parse the selected text, highlight it, and define it
+        viewModel.defineSelectedText(inTextView: frontTextView)
     }
     
 

@@ -25,6 +25,7 @@
 		C9538C791E907FEC005F8237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9538C771E907FEC005F8237 /* LaunchScreen.storyboard */; };
 		C95BE1731EC27ADA004F2743 /* ExtensionItemParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BE1721EC27ADA004F2743 /* ExtensionItemParser.swift */; };
 		C95BE1751EC280F1004F2743 /* CardCreationExtensionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BE1741EC280F1004F2743 /* CardCreationExtensionViewModel.swift */; };
+		C95BE1791EC2A1F4004F2743 /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BE1781EC2A1F4004F2743 /* UITextView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		C9538C7A1E907FEC005F8237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C95BE1721EC27ADA004F2743 /* ExtensionItemParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionItemParser.swift; sourceTree = "<group>"; };
 		C95BE1741EC280F1004F2743 /* CardCreationExtensionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCreationExtensionViewModel.swift; sourceTree = "<group>"; };
+		C95BE1781EC2A1F4004F2743 /* UITextView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				C946DAF61EBAB6C9004FB76F /* Languages */,
 				C946DAE41EBA5E1D004FB76F /* SharedCode.h */,
 				C946DAE51EBA5E1D004FB76F /* Info.plist */,
+				C95BE1781EC2A1F4004F2743 /* UITextView+Extensions.swift */,
 			);
 			path = SharedCode;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C946DAFE1EBAC122004FB76F /* JapaneseTerm.swift in Sources */,
+				C95BE1791EC2A1F4004F2743 /* UITextView+Extensions.swift in Sources */,
 				C946DAFA1EBABE72004FB76F /* TermProtocol.swift in Sources */,
 				C946DB031EBAC995004FB76F /* EnglishTerm.swift in Sources */,
 				C946DB001EBAC307004FB76F /* CardModel.swift in Sources */,
