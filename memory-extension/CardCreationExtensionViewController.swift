@@ -12,7 +12,6 @@ import SharedCode
 class CardCreationExtensionViewController: UIViewController {
     
     var viewModel = CardCreationExtensionViewModel()
-    // FrontTextView
     @IBOutlet weak var frontTextView: UITextView!
     // BackTableView
     
@@ -26,18 +25,32 @@ class CardCreationExtensionViewController: UIViewController {
         }
     }
     
-    @IBAction func done() {
-        dismiss()
-    }
-    
     func dismiss() {
         self.extensionContext?.completeRequest(returningItems: self.extensionContext?.inputItems, completionHandler: nil)
     }
+    
+    //MARK: - Buttons
+    @IBAction func closeButtonPushed() {
+        dismiss()
+    }
+    
+    @IBAction func resetButtonPushed() {
+        print("Reset button pushed")
+    }
+    
+    @IBAction func createCardButtonPushed() {
+        print("Create card button pushed")
+    }
+    
+    @IBAction func defineButtonPushed() {
+        print("Define button pushed")
+    }
+    
+
 }
 
 extension CardCreationExtensionViewController: CardCreationViewModelDelegate {
     func setFront(usingText text: String) {
-        // set the textview's front text
         frontTextView.text = text
     }
 }

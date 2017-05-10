@@ -6,21 +6,34 @@
 //  Copyright © 2017 Matt Amerige. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol CardCreationViewModelDelegate: class {
     func setFront(usingText text: String)
 }
 
 class CardCreationExtensionViewModel {
-    let parser = ExtensionItemParser()
-    weak var delegate: CardCreationViewModelDelegate?
     
+    fileprivate let parser = ExtensionItemParser()
+    
+    weak var delegate: CardCreationViewModelDelegate?
     
     func parse(extensionContext: NSExtensionContext) {
         parser.delegate = self
         parser.parse(extensionContext: extensionContext)
     }
+    
+    func highlightSelectedText(inTextView textView: UITextView) {
+        let range = textView.selectedRange
+        let text = NSMutableAttributedString(attributedString: textView.attributedText)
+        let attributes = [
+            NSForegroundColorAttributeName : UIColor.red,
+            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 20.0)]
+        text.addAttributes(attributes, range: range)
+        textView.attributedText = text
+    }
+    
+
 }
 
 extension CardCreationExtensionViewModel: ExtensionItemParserDelegate {
