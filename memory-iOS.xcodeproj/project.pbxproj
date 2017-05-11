@@ -11,6 +11,9 @@
 		3127917A4E8785E2A5B9FCFE /* Pods_Tests_SharedCodeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCE195A36FBC9B2AC32E97C /* Pods_Tests_SharedCodeTests.framework */; };
 		6BC8AAF12FC5CB27643B48BD /* Pods_memory_extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04A462E55126A097D004273 /* Pods_memory_extension.framework */; };
 		A5DEC54D163C1E4923A100B4 /* Pods_SharedCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3699CB40583F7E3AEE94A41 /* Pods_SharedCode.framework */; };
+		C9112EC41EC4D1DD0066395F /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9112EC21EC4D1DD0066395F /* TermTableViewCell.swift */; };
+		C9112EC51EC4D1DD0066395F /* TermTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9112EC31EC4D1DD0066395F /* TermTableViewCell.xib */; };
+		C9112EC71EC4DF110066395F /* BundleUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9112EC61EC4DF110066395F /* BundleUtility.swift */; };
 		C931F5121EC2B61F0070D86C /* TestStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C931F50F1EC2B49C0070D86C /* TestStruct.swift */; };
 		C931F5141EC2B8920070D86C /* CardCreationExtensionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BE1741EC280F1004F2743 /* CardCreationExtensionViewModel.swift */; };
 		C931F5151EC2B8970070D86C /* ExtensionItemParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BE1721EC27ADA004F2743 /* ExtensionItemParser.swift */; };
@@ -103,6 +106,9 @@
 		A3699CB40583F7E3AEE94A41 /* Pods_SharedCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharedCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51BE855CB2B5F0C4F43133A /* Pods-memory-iOSUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memory-iOSUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-memory-iOSUnitTests/Pods-memory-iOSUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		C04A462E55126A097D004273 /* Pods_memory_extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memory_extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9112EC21EC4D1DD0066395F /* TermTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermTableViewCell.swift; sourceTree = "<group>"; };
+		C9112EC31EC4D1DD0066395F /* TermTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermTableViewCell.xib; sourceTree = "<group>"; };
+		C9112EC61EC4DF110066395F /* BundleUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleUtility.swift; sourceTree = "<group>"; };
 		C931F50F1EC2B49C0070D86C /* TestStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStruct.swift; sourceTree = "<group>"; };
 		C946DAAB1EBA598F004FB76F /* memory-extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "memory-extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C946DAAD1EBA598F004FB76F /* CardCreationExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCreationExtensionViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +201,8 @@
 			children = (
 				C95BE1741EC280F1004F2743 /* CardCreationExtensionViewModel.swift */,
 				C95BE1721EC27ADA004F2743 /* ExtensionItemParser.swift */,
+				C9112EC21EC4D1DD0066395F /* TermTableViewCell.swift */,
+				C9112EC31EC4D1DD0066395F /* TermTableViewCell.xib */,
 			);
 			name = "Card Creation";
 			sourceTree = "<group>";
@@ -228,6 +236,7 @@
 				C946DAE41EBA5E1D004FB76F /* SharedCode.h */,
 				C946DAE51EBA5E1D004FB76F /* Info.plist */,
 				C931F5161EC2B8A70070D86C /* Extensions */,
+				C9112EC61EC4DF110066395F /* BundleUtility.swift */,
 			);
 			path = SharedCode;
 			sourceTree = "<group>";
@@ -503,6 +512,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9112EC51EC4D1DD0066395F /* TermTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,10 +705,12 @@
 				C9720BCB1EC375B900FC0945 /* JDICTParser.swift in Sources */,
 				C946DAFE1EBAC122004FB76F /* JapaneseTerm.swift in Sources */,
 				C931F5151EC2B8970070D86C /* ExtensionItemParser.swift in Sources */,
+				C9112EC71EC4DF110066395F /* BundleUtility.swift in Sources */,
 				C95BE1791EC2A1F4004F2743 /* UITextView+Extensions.swift in Sources */,
 				C946DAFA1EBABE72004FB76F /* TermProtocol.swift in Sources */,
 				C946DB031EBAC995004FB76F /* EnglishTerm.swift in Sources */,
 				C946DB001EBAC307004FB76F /* CardModel.swift in Sources */,
+				C9112EC41EC4D1DD0066395F /* TermTableViewCell.swift in Sources */,
 				C931F5141EC2B8920070D86C /* CardCreationExtensionViewModel.swift in Sources */,
 				C9720BC81EC36E4900FC0945 /* DictionarySearchAPIClient.swift in Sources */,
 			);

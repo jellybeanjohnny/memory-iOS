@@ -10,6 +10,7 @@ import UIKit
 
 public protocol CardCreationViewModelDelegate: class {
     func setFront(usingAttributedText text: NSAttributedString)
+    func refresh()
 }
 
 public class CardCreationExtensionViewModel {
@@ -42,7 +43,7 @@ public class CardCreationExtensionViewModel {
     
     public func clearTableView() {
         items.removeAll()
-        // reload tableview
+        delegate?.refresh()
     }
     
     public func createCard(usingFrontText frontText: NSAttributedString) {
@@ -93,7 +94,7 @@ extension CardCreationExtensionViewModel: DictionarySearchDelegate {
             print("\(term.term)\n\n\(term.definition)\n\n")
             items.append(term)
         }
-        // reload tableview
+        delegate?.refresh()
     }
     
     func searchDidFail(withError error: Error) {

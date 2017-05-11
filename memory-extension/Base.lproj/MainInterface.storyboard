@@ -61,30 +61,39 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Jb-Ef-oLe">
-                                <rect key="frame" x="10" y="75" width="300" height="220"/>
+                                <rect key="frame" x="10" y="75" width="300" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="73" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="utg-Cp-eRI">
+                                <rect key="frame" x="10" y="285" width="300" height="180"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Jb-Ef-oLe" firstAttribute="height" secondItem="zMn-AG-sqS" secondAttribute="height" multiplier="0.5" constant="-44" id="3pg-hL-H1l"/>
+                            <constraint firstItem="6Jb-Ef-oLe" firstAttribute="height" secondItem="zMn-AG-sqS" secondAttribute="height" multiplier="0.5" constant="-64" id="3pg-hL-H1l"/>
+                            <constraint firstAttribute="trailing" secondItem="utg-Cp-eRI" secondAttribute="trailing" constant="10" id="8Q2-px-svy"/>
                             <constraint firstItem="zgl-dF-pl8" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="8ta-09-bx7"/>
                             <constraint firstAttribute="trailing" secondItem="NOA-Dm-cuz" secondAttribute="trailing" id="A05-Pj-hrr"/>
                             <constraint firstItem="zgl-dF-pl8" firstAttribute="width" secondItem="zMn-AG-sqS" secondAttribute="width" id="EqU-t1-FXG"/>
                             <constraint firstItem="n38-gi-rB5" firstAttribute="top" secondItem="zgl-dF-pl8" secondAttribute="bottom" id="Gmd-wV-Rcc"/>
                             <constraint firstItem="NOA-Dm-cuz" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="HxO-8t-aoh"/>
                             <constraint firstAttribute="leading" secondItem="6Jb-Ef-oLe" secondAttribute="leading" constant="-10" id="dil-eY-LjT"/>
+                            <constraint firstItem="utg-Cp-eRI" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" constant="10" id="eOk-VQ-IPq"/>
+                            <constraint firstItem="utg-Cp-eRI" firstAttribute="top" secondItem="6Jb-Ef-oLe" secondAttribute="bottom" constant="10" id="eQX-ab-kK4"/>
                             <constraint firstAttribute="trailing" secondItem="6Jb-Ef-oLe" secondAttribute="trailing" constant="10" id="nWL-4p-MZr"/>
                             <constraint firstItem="6Jb-Ef-oLe" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" constant="55" id="pE6-pf-kJK"/>
                             <constraint firstItem="zgl-dF-pl8" firstAttribute="height" secondItem="zMn-AG-sqS" secondAttribute="height" multiplier="0.1" id="s2u-DB-ert"/>
                             <constraint firstItem="NOA-Dm-cuz" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" id="we0-1t-bgp"/>
+                            <constraint firstItem="zgl-dF-pl8" firstAttribute="top" secondItem="utg-Cp-eRI" secondAttribute="bottom" constant="10" id="yCt-Da-Koi"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
+                        <outlet property="backTableView" destination="utg-Cp-eRI" id="jRG-lr-hip"/>
                         <outlet property="frontTextView" destination="6Jb-Ef-oLe" id="gVD-mU-e1U"/>
                         <outlet property="view" destination="zMn-AG-sqS" id="Qma-de-2ek"/>
                     </connections>

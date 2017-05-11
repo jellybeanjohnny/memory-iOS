@@ -13,7 +13,11 @@ class CardCreationExtensionViewController: UIViewController {
     
     var viewModel = CardCreationExtensionViewModel()
     @IBOutlet weak var frontTextView: UITextView!
-    // BackTableView
+    @IBOutlet weak var backTableView: UITableView!
+    
+    struct CellIdentifier {
+        static let termCell = String(describing: TermTableViewCell.self)
+    }
     
     
     override func viewDidLoad() {
@@ -24,6 +28,18 @@ class CardCreationExtensionViewController: UIViewController {
         if let context = self.extensionContext {
             viewModel.parse(extensionContext: context)
         }
+        
+        setTableViewDelegatesAndRegisterCells()
+    }
+    
+    func setTableViewDelegatesAndRegisterCells() {
+        backTableView.delegate = self
+        backTableView.dataSource = self
+        // Get access to the correct bundle that contains the TermTableViewCell so that it can be registered
+        let bundleUtil = BundleUtility()
+        let bundle = bundleUtil.sharedCodeBundle()
+        let nib = UINib(nibName: CellIdentifier.termCell, bundle: bundle)
+        backTableView.register(nib, forCellReuseIdentifier: CellIdentifier.termCell)
     }
     
     func addDefineMenu() {
@@ -61,12 +77,32 @@ class CardCreationExtensionViewController: UIViewController {
         viewModel.define(searchTerm: frontTextView.selectedText)
     }
     
-
+    
 }
 
 extension CardCreationExtensionViewController: CardCreationViewModelDelegate {
     func setFront(usingAttributedText text: NSAttributedString) {
         frontTextView.attributedText = text
+    }
+    
+    func refresh() {
+        backTableView.reloadData()
+    }
+}
+
+extension CardCreationExtensionViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.termCell, for: indexPath) as? TermTableViewCell else {
+            return UITableViewCell()
+        }
+        let item = viewModel.items[indexPath.row]
+        cell.set(term: item.term)
+        cell.set(definition: item.definition)
+        return cell
     }
 }
 
