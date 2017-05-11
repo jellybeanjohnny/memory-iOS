@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 protocol DictionarySearchDelegate: class {
-    func searchDidComplete(term: TermProtocol)
+    func searchDidComplete(terms: [TermProtocol])
     func searchDidFail(withError error: Error)
 }
 
@@ -32,8 +32,8 @@ struct DictionarySearchAPIClient {
             case .success(let value):
                 let parser = JDICTParser()
                 let json = JSON(value)
-                let term = parser.parse(json: json)
-                self.delegate?.searchDidComplete(term: term)
+                let terms = parser.parse(json: json)
+                self.delegate?.searchDidComplete(terms: terms)
             case .failure(let error):
                 self.delegate?.searchDidFail(withError: error)
             }

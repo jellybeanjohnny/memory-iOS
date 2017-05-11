@@ -9,11 +9,11 @@
 import Foundation
 
 public struct CardModel {
-    let front: String
+    let front: NSAttributedString
     var back: [TermProtocol]
     var date: Date
     
-    init(front: String, back: [TermProtocol], date: Date = Date()) {
+    init(front: NSAttributedString, back: [TermProtocol], date: Date = Date()) {
         self.front = front
         self.back = back
         self.date = date

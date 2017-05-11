@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol CardCreationViewModelDelegate: class {
-    func setFront(usingText text: String)
+    func setFront(usingAttributedText text: NSAttributedString)
 }
 
 public class CardCreationExtensionViewModel {
@@ -18,9 +18,10 @@ public class CardCreationExtensionViewModel {
     fileprivate var searchClient = DictionarySearchAPIClient()
     
     public var originalText: String?
+    public var attributedText: NSMutableAttributedString?
     public weak var delegate: CardCreationViewModelDelegate?
     public var items: [TermProtocol] = []
-    
+    public var card: CardModel?
     
     public init() {
         
@@ -31,15 +32,12 @@ public class CardCreationExtensionViewModel {
         parser.parse(extensionContext: extensionContext)
     }
     
-    public func defineSelectedText(inTextView textView: UITextView) {
-        textView.highlightSelectedText()
-        let termToDefine = textView.selectedText
-        define(searchTerm: termToDefine)
-    }
-    
-    
-    public func reset(textView: UITextView) {
-        textView.text = originalText
+    public func reset() {
+        if let originalText = originalText {
+            let uneditedText = NSMutableAttributedString(string: originalText)
+            attributedText = uneditedText
+            delegate?.setFront(usingAttributedText: uneditedText)
+        }
     }
     
     public func clearTableView() {
@@ -47,14 +45,31 @@ public class CardCreationExtensionViewModel {
         // reload tableview
     }
     
-    public func createCard(usingFrontText: NSAttributedString) {
-        
+    public func createCard(usingFrontText frontText: NSAttributedString) {
+        card = CardModel(front: frontText, back: items)
+        // Save card to db
+    }
+
+    public func define(searchTerm: String) {
+        if searchClient.delegate == nil {
+            searchClient.delegate = self
+        }
+        highlight(text: searchTerm)
+        searchClient.search(forItem: searchTerm, language: .japanese)
     }
     
-    //MARK: - Internal
-    func define(searchTerm: String) {
-        searchClient.delegate = self
-        searchClient.search(forItem: searchTerm, language: .japanese)
+    func highlight(text: String) {
+        
+        guard let originalText = originalText else { return }
+        let range = (originalText as NSString).range(of: text)
+        let attributes = [
+            NSForegroundColorAttributeName : UIColor.red,
+        ]
+        
+        if let attributedText = attributedText {
+            attributedText.addAttributes(attributes, range: range)
+            delegate?.setFront(usingAttributedText: attributedText)
+        }
     }
 }
 
@@ -62,19 +77,23 @@ public class CardCreationExtensionViewModel {
 extension CardCreationExtensionViewModel: ExtensionItemParserDelegate {
     func didParse(selectedText: String) {
         originalText = selectedText
-        delegate?.setFront(usingText: selectedText)
+        attributedText = NSMutableAttributedString(string: selectedText)
+        delegate?.setFront(usingAttributedText: NSMutableAttributedString(string: selectedText))
     }
     
     func parserDidFail(withError error: Error) {
-        print(error)
+        print("Parser Error: \(error.localizedDescription)")
     }
 }
 
 //MARK: - Search Delegate Methods
 extension CardCreationExtensionViewModel: DictionarySearchDelegate {
-    func searchDidComplete(term: TermProtocol) {
-        print("Search Completed with term: \(term)")
-        items.append(term)
+    func searchDidComplete(terms: [TermProtocol]) {
+        for term in terms {
+            print("\(term.term)\n\n\(term.definition)\n\n")
+            items.append(term)
+        }
+        // reload tableview
     }
     
     func searchDidFail(withError error: Error) {

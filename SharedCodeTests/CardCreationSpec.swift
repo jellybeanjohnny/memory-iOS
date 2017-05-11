@@ -17,23 +17,16 @@ class CardCreationSpec: QuickSpec {
         describe("Creating a new card") {
             
             let cardCreationViewModel = CardCreationExtensionViewModel()
-            cardCreationViewModel.originalText = "みんなの土竜たちが土の穴から出てきました。"
+            cardCreationViewModel.originalText = "みんなの土竜たちが土の中から出てきました。"
+            cardCreationViewModel.attributedText = NSMutableAttributedString(string: "みんなの土竜たちが土の中から出てきました。")
+            let searchTerm = "土竜"
             
             context("Pushing the define word button") {
-                it("should parse the selected item") {
-                    let textView = UITextView()
-                    textView.text = cardCreationViewModel.originalText
-                    textView.selectedRange = NSRange(location: 4, length: 2)
-                    expect(textView.selectedText).to(equal("土竜"))
-                    expect(textView.selectedText).notTo(equal("Wrong Word"))
-                }
-                
-                
+   
                 it("should lookup the definition for the item and return a correctly parsed definition object") {
-                    let termToDefine = "土竜"
                     let hijacker = NetworkHijacker()
-                    hijacker.hijackDefineRequest(toHost: "https://5bfa5988.ngrok.io/search?term=\(termToDefine)")
-                    cardCreationViewModel.define(searchTerm: termToDefine)
+                    hijacker.hijackDefineRequest(toHost: "https://5bfa5988.ngrok.io/search?term=\(searchTerm)")
+                    cardCreationViewModel.define(searchTerm: searchTerm)
                     
                     let mockItem = Item()
                     expect(cardCreationViewModel.items.count).toEventually(equal(1))
@@ -43,30 +36,42 @@ class CardCreationSpec: QuickSpec {
                         expect(item.definition).toEventually(equal(mockItem.definition))
                     }
                 }
-                
+            }
+            
+            context("pushing the create button") {
+                it("Should generate the appropriate card model given the front text and back items") {
+                    
+                    let frontAttributedText = NSMutableAttributedString(string: cardCreationViewModel.originalText!)
+                    let range = (cardCreationViewModel.originalText! as NSString).range(of: "土竜")
+                    let attributes = [
+                        NSForegroundColorAttributeName : UIColor.red,
+                        NSFontAttributeName: UIFont.boldSystemFont(ofSize: 20)]
+                    frontAttributedText.addAttributes(attributes, range: range)
+                    
+                    let mockItem = Item()
+                    let mockCard = CardModel(front: frontAttributedText, back: [mockItem])
+                    
+                    cardCreationViewModel.createCard(usingFrontText: cardCreationViewModel.attributedText!)
 
+                    expect(cardCreationViewModel.card!.front).to(equal(mockCard.front))
+                    expect(cardCreationViewModel.card!.back.count).to(equal(mockCard.back.count))
+                    expect(cardCreationViewModel.card!.back.first!.term).to(equal(mockCard.back.first!.term))
+                    expect(cardCreationViewModel.card!.back.first!.definition).to(equal(mockCard.back.first!.definition))
+                }
             }
             
             context("Pushing the reset button") {
                 it ("should reset the front text to the original") {
-                    let textView = UITextView()
-                    let wrongText = "This is the wrong text"
-                    textView.text = wrongText
-                    cardCreationViewModel.reset(textView: textView)
-                    expect(textView.text).to(equal(cardCreationViewModel.originalText))
+                    let clearedAttributedString = NSMutableAttributedString(string: cardCreationViewModel.originalText!)
+                    cardCreationViewModel.reset()
+                    expect(cardCreationViewModel.attributedText!).to(equal(clearedAttributedString))
                 }
-                
+
                 it("should clear the back table view") {
                     cardCreationViewModel.clearTableView()
                     let itemCount = cardCreationViewModel.items.count
                     expect(itemCount).to(equal(0))
                 }
-            }
-        }
-        
-        context("pushing the create button") {
-            it("Should generate the appropriate card model") {
-                // stub
             }
         }
     }

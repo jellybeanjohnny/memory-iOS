@@ -20,12 +20,13 @@ public extension UITextView {
         return result
     }
     
-   public func highlightSelectedText() {
+    public func highlightSelectedText() {
         let range = self.selectedRange
         let text = NSMutableAttributedString(attributedString: self.attributedText)
         let attributes = [
             NSForegroundColorAttributeName : UIColor.red,
             NSFontAttributeName: UIFont.boldSystemFont(ofSize: 20)]
         text.addAttributes(attributes, range: range)
+        self.attributedText = text
     }
 }

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,10 +60,10 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Jb-Ef-oLe">
-                                <rect key="frame" x="16" y="64" width="288" height="220"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Jb-Ef-oLe">
+                                <rect key="frame" x="10" y="75" width="300" height="220"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -76,9 +75,9 @@
                             <constraint firstItem="zgl-dF-pl8" firstAttribute="width" secondItem="zMn-AG-sqS" secondAttribute="width" id="EqU-t1-FXG"/>
                             <constraint firstItem="n38-gi-rB5" firstAttribute="top" secondItem="zgl-dF-pl8" secondAttribute="bottom" id="Gmd-wV-Rcc"/>
                             <constraint firstItem="NOA-Dm-cuz" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="HxO-8t-aoh"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="6Jb-Ef-oLe" secondAttribute="leading" id="dil-eY-LjT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6Jb-Ef-oLe" secondAttribute="trailing" id="nWL-4p-MZr"/>
-                            <constraint firstItem="6Jb-Ef-oLe" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" constant="44" id="pE6-pf-kJK"/>
+                            <constraint firstAttribute="leading" secondItem="6Jb-Ef-oLe" secondAttribute="leading" constant="-10" id="dil-eY-LjT"/>
+                            <constraint firstAttribute="trailing" secondItem="6Jb-Ef-oLe" secondAttribute="trailing" constant="10" id="nWL-4p-MZr"/>
+                            <constraint firstItem="6Jb-Ef-oLe" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" constant="55" id="pE6-pf-kJK"/>
                             <constraint firstItem="zgl-dF-pl8" firstAttribute="height" secondItem="zMn-AG-sqS" secondAttribute="height" multiplier="0.1" id="s2u-DB-ert"/>
                             <constraint firstItem="NOA-Dm-cuz" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" id="we0-1t-bgp"/>
                         </constraints>

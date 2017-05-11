@@ -21,7 +21,7 @@ class JDICTParserSpec: QuickSpec {
             let text = try! String(contentsOf: path!)
             let json = JSON(parseJSON: text)
             let parser = JDICTParser()
-            let japaneseTerm = parser.parse(json: json)
+            let japaneseTerm = parser.parse(json: json).first!
             
             it("should create a Japanese term object with the correct number of elements") {
                 expect(japaneseTerm.kana.count).to(equal(7))

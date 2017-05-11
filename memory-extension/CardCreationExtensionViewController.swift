@@ -42,8 +42,8 @@ class CardCreationExtensionViewController: UIViewController {
     
     @IBAction func resetButtonPushed() {
         print("Reset button pushed")
-        // should clear an edits done to the front of the card
-        viewModel.reset(textView: frontTextView)
+        // should clear all edits done to the front of the card
+        viewModel.reset()
         // should clear the back tableview
         viewModel.clearTableView()
         
@@ -58,15 +58,15 @@ class CardCreationExtensionViewController: UIViewController {
     @IBAction func defineButtonPushed() {
         print("Define button pushed")
         // should parse the selected text, highlight it, and define it
-        viewModel.defineSelectedText(inTextView: frontTextView)
+        viewModel.define(searchTerm: frontTextView.selectedText)
     }
     
 
 }
 
 extension CardCreationExtensionViewController: CardCreationViewModelDelegate {
-    func setFront(usingText text: String) {
-        frontTextView.text = text
+    func setFront(usingAttributedText text: NSAttributedString) {
+        frontTextView.attributedText = text
     }
 }
 

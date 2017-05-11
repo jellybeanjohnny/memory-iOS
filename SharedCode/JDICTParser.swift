@@ -11,17 +11,19 @@ import SwiftyJSON
 
 public struct JDICTParser {
 
-    public func parse(json: JSON) -> JapaneseTerm {
-        var kanji: [String] = []
-        var kana: [String] = []
-        var sense: [String] = []
+    public func parse(json: JSON) -> [JapaneseTerm] {
+        var terms: [JapaneseTerm] = []
+        
         for item in json["items"].arrayValue {
-            kanji = parseKanji(item: item)
-            kana = parseKana(item: item)
-            sense = parseSense(item: item)
+            let kanji = parseKanji(item: item)
+            let kana = parseKana(item: item)
+            let sense = parseSense(item: item)
+            
+            let japaneseTerm = JapaneseTerm(kana: kana, kanji: kanji, sense: sense)
+            
+            terms.append(japaneseTerm)
         }
-        let japaneseTerm = JapaneseTerm(kana: kana, kanji: kanji, sense: sense)
-        return japaneseTerm
+        return terms
     }
     
     fileprivate func parseKanji(item: JSON) -> [String] {
