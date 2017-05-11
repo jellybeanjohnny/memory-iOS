@@ -22,14 +22,6 @@ class DefineJapaneseWordSpec: QuickSpec {
             
             context("Pushing the define word button") {
                 
-                it("Should highlight the word at the specified range") {
-                    
-                    let highlightedText = NSMutableAttributedString(string: "土竜土竜もぐら")
-                    highlightedText.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSRange(location: 2, length: 2))
-                    cardViewModel.highlightText(atRange: NSRange(location: 2, length: 2))
-                    expect(cardViewModel.attributedText!).to(equal(highlightedText))
-                }
-                
                 it("should lookup the definition for the item and return a correctly parsed definition object") {
                     let hijacker = NetworkHijacker()
                     hijacker.hijackDefineRequest(toHost: "https://5bfa5988.ngrok.io/search?term=土竜")

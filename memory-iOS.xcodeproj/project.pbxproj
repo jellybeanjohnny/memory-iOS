@@ -17,6 +17,8 @@
 		C9112ECA1EC4EDAA0066395F /* ResetCardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9112EC91EC4EDAA0066395F /* ResetCardSpec.swift */; };
 		C9112ECC1EC4EDC00066395F /* DefineJapaneseWordSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9112ECB1EC4EDC00066395F /* DefineJapaneseWordSpec.swift */; };
 		C9112ECF1EC4EED20066395F /* MockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9112ECE1EC4EED20066395F /* MockItem.swift */; };
+		C9112ED31EC50B460066395F /* FrontTextAttributeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9112ED21EC50B460066395F /* FrontTextAttributeSpec.swift */; };
+		C9112ED51EC50D380066395F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9112ED41EC50D380066395F /* Constants.swift */; };
 		C931F5121EC2B61F0070D86C /* TestStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C931F50F1EC2B49C0070D86C /* TestStruct.swift */; };
 		C931F5141EC2B8920070D86C /* CardCreationExtensionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BE1741EC280F1004F2743 /* CardCreationExtensionViewModel.swift */; };
 		C931F5151EC2B8970070D86C /* ExtensionItemParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BE1721EC27ADA004F2743 /* ExtensionItemParser.swift */; };
@@ -115,6 +117,8 @@
 		C9112EC91EC4EDAA0066395F /* ResetCardSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetCardSpec.swift; sourceTree = "<group>"; };
 		C9112ECB1EC4EDC00066395F /* DefineJapaneseWordSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineJapaneseWordSpec.swift; sourceTree = "<group>"; };
 		C9112ECE1EC4EED20066395F /* MockItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockItem.swift; sourceTree = "<group>"; };
+		C9112ED21EC50B460066395F /* FrontTextAttributeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontTextAttributeSpec.swift; sourceTree = "<group>"; };
+		C9112ED41EC50D380066395F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C931F50F1EC2B49C0070D86C /* TestStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStruct.swift; sourceTree = "<group>"; };
 		C946DAAB1EBA598F004FB76F /* memory-extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "memory-extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C946DAAD1EBA598F004FB76F /* CardCreationExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCreationExtensionViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 				C946DAE51EBA5E1D004FB76F /* Info.plist */,
 				C931F5161EC2B8A70070D86C /* Extensions */,
 				C9112EC81EC4E3050066395F /* Utilities */,
+				C9112ED41EC50D380066395F /* Constants.swift */,
 			);
 			path = SharedCode;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 		C96EFF8B1EC2BA6100E21E22 /* SharedCodeTests */ = {
 			isa = PBXGroup;
 			children = (
+				C9112ED21EC50B460066395F /* FrontTextAttributeSpec.swift */,
 				C9F542D41EC2BD1D005573C3 /* CardCreationSpec.swift */,
 				C9112ECB1EC4EDC00066395F /* DefineJapaneseWordSpec.swift */,
 				C9112EC91EC4EDAA0066395F /* ResetCardSpec.swift */,
@@ -755,6 +761,7 @@
 				C9112EC41EC4D1DD0066395F /* TermTableViewCell.swift in Sources */,
 				C931F5141EC2B8920070D86C /* CardCreationExtensionViewModel.swift in Sources */,
 				C9720BC81EC36E4900FC0945 /* DictionarySearchAPIClient.swift in Sources */,
+				C9112ED51EC50D380066395F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,6 +781,7 @@
 			files = (
 				C9112ECF1EC4EED20066395F /* MockItem.swift in Sources */,
 				C9F542D51EC2BD1D005573C3 /* CardCreationSpec.swift in Sources */,
+				C9112ED31EC50B460066395F /* FrontTextAttributeSpec.swift in Sources */,
 				C9720BCD1EC37D4E00FC0945 /* JDICTParserSpec.swift in Sources */,
 				C9112ECA1EC4EDAA0066395F /* ResetCardSpec.swift in Sources */,
 				C9720BC41EC3598B00FC0945 /* NetworkHijacker.swift in Sources */,

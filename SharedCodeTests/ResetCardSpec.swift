@@ -22,8 +22,9 @@ class ResetCardSpec: QuickSpec {
             cardViewModel.items.append(mockItem)
             
             context("Pushing the reset button") {
-                it ("should reset the front text to the original") {
+                it ("should reset the front text to the original, preserving original size") {
                     let clearedAttributedString = NSMutableAttributedString(string: "土竜土竜土竜もぐら")
+                    clearedAttributedString.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 17), range: NSRange(location: 0, length: clearedAttributedString.length))
                     // highlight text
                     cardViewModel.highlightText(atRange: NSRange(location: 0, length: 2))
                     cardViewModel.reset()

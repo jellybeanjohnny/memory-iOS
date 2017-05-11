@@ -19,7 +19,13 @@ public class CardCreationExtensionViewModel {
     fileprivate var searchClient = DictionarySearchAPIClient()
     
     public var originalText: String?
-    public var attributedText: NSMutableAttributedString?
+    public var attributedText: NSMutableAttributedString? {
+        willSet {
+            if let newValue = newValue {
+                setAttributedText(text: newValue, toSize: Constants.frontOfCardTextSize)
+            }
+        }
+    }
     public weak var delegate: CardCreationViewModelDelegate?
     public var items: [TermProtocol] = []
     public var card: CardModel?
@@ -37,7 +43,9 @@ public class CardCreationExtensionViewModel {
         if let originalText = originalText {
             let uneditedText = NSMutableAttributedString(string: originalText)
             attributedText = uneditedText
-            delegate?.setFront(usingAttributedText: uneditedText)
+            if let attributedText = attributedText {
+                delegate?.setFront(usingAttributedText: attributedText)
+            }
         }
     }
     
@@ -51,7 +59,7 @@ public class CardCreationExtensionViewModel {
             card = CardModel(front: attributedText, back: items)
         }
     }
-
+    
     public func defineText(atRange range: NSRange) {
         if searchClient.delegate == nil {
             searchClient.delegate = self
@@ -75,6 +83,12 @@ public class CardCreationExtensionViewModel {
             delegate?.setFront(usingAttributedText: attributedText)
         }
     }
+    
+    func setAttributedText(text: NSMutableAttributedString, toSize size: CGFloat) {
+            text.addAttribute(NSFontAttributeName,
+                                        value: UIFont.systemFont(ofSize: size),
+                                        range: NSRange(location: 0, length: text.length))
+    }
 }
 
 // MARK: - Extension Item Parsing Delegate Methods
@@ -82,7 +96,9 @@ extension CardCreationExtensionViewModel: ExtensionItemParserDelegate {
     func didParse(selectedText: String) {
         originalText = selectedText
         attributedText = NSMutableAttributedString(string: selectedText)
-        delegate?.setFront(usingAttributedText: NSMutableAttributedString(string: selectedText))
+        if let attributedText = attributedText {
+            delegate?.setFront(usingAttributedText: attributedText)
+        }
     }
     
     func parserDidFail(withError error: Error) {
