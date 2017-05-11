@@ -46,29 +46,32 @@ public class CardCreationExtensionViewModel {
         delegate?.refresh()
     }
     
-    public func createCard(usingFrontText frontText: NSAttributedString) {
-        card = CardModel(front: frontText, back: items)
-        // Save card to db
+    public func createCard() {
+        if let attributedText = attributedText {
+            card = CardModel(front: attributedText, back: items)
+        }
     }
 
-    public func define(searchTerm: String) {
+    public func defineText(atRange range: NSRange) {
         if searchClient.delegate == nil {
             searchClient.delegate = self
         }
-        highlight(text: searchTerm)
+        
+        highlightText(atRange: range)
+        
+        guard let originalText = originalText else { return }
+        
+        let searchTerm = (originalText as NSString).substring(with: range)
+        
         searchClient.search(forItem: searchTerm, language: .japanese)
     }
     
-    func highlight(text: String) {
+    func highlightText(atRange range: NSRange) {
         
-        guard let originalText = originalText else { return }
-        let range = (originalText as NSString).range(of: text)
-        let attributes = [
-            NSForegroundColorAttributeName : UIColor.red,
-        ]
+        let highlightattributes = [NSForegroundColorAttributeName : UIColor.red]
         
         if let attributedText = attributedText {
-            attributedText.addAttributes(attributes, range: range)
+            attributedText.addAttributes(highlightattributes, range: range)
             delegate?.setFront(usingAttributedText: attributedText)
         }
     }

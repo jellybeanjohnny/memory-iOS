@@ -19,7 +19,6 @@ class CardCreationExtensionViewController: UIViewController {
         static let termCell = String(describing: TermTableViewCell.self)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         addDefineMenu()
@@ -66,18 +65,12 @@ class CardCreationExtensionViewController: UIViewController {
     }
     
     @IBAction func createCardButtonPushed() {
-        print("Create card button pushed")
-        // should create a single card
-        viewModel.createCard(usingFrontText: frontTextView.attributedText)
+        viewModel.createCard()
     }
     
     @IBAction func defineButtonPushed() {
-        print("Define button pushed")
-        // should parse the selected text, highlight it, and define it
-        viewModel.define(searchTerm: frontTextView.selectedText)
+        viewModel.defineText(atRange: frontTextView.selectedRange)
     }
-    
-    
 }
 
 extension CardCreationExtensionViewController: CardCreationViewModelDelegate {

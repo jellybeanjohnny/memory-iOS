@@ -16,7 +16,7 @@ public struct JapaneseTerm: TermProtocol {
     public var term: String {
         let kanjiString = reduceToString(array: kanji)
         let kanaString = reduceToString(array: kana)
-        return "\(kanjiString), (\(kanaString))"
+        return "\(kanjiString) (\(kanaString))"
     }
     
     public var definition: String {
