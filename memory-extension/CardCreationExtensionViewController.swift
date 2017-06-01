@@ -27,8 +27,10 @@ class CardCreationExtensionViewController: UIViewController {
         if let context = self.extensionContext {
             viewModel.parse(extensionContext: context)
         }
-        
+        backTableView.allowsSelectionDuringEditing = false
         setTableViewDelegatesAndRegisterCells()
+        backTableView.rowHeight = UITableViewAutomaticDimension
+        backTableView.estimatedRowHeight = 44
     }
     
     func setTableViewDelegatesAndRegisterCells() {
@@ -84,6 +86,7 @@ extension CardCreationExtensionViewController: CardCreationViewModelDelegate {
 }
 
 extension CardCreationExtensionViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.items.count
     }
@@ -96,6 +99,13 @@ extension CardCreationExtensionViewController: UITableViewDelegate, UITableViewD
         cell.set(term: item.term)
         cell.set(definition: item.definition)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            viewModel.removeItem(atRow: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }
 

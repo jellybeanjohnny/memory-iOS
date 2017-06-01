@@ -16,7 +16,9 @@ public protocol CardCreationViewModelDelegate: class {
 public class CardCreationExtensionViewModel {
     
     fileprivate let parser = ExtensionItemParser()
-    fileprivate var searchClient = DictionarySearchAPIClient()
+    fileprivate let searchClient = DictionarySearchAPIClient()
+    
+    internal var mostRecentRange: NSRange?
     
     public var originalText: String?
     public var attributedText: NSMutableAttributedString? {
@@ -29,10 +31,9 @@ public class CardCreationExtensionViewModel {
     public weak var delegate: CardCreationViewModelDelegate?
     public var items: [TermProtocol] = []
     public var card: CardModel?
+    public var itemRanges: [NSRange] = []
     
-    public init() {
-        
-    }
+    public init() {}
     
     public func parse(extensionContext: NSExtensionContext) {
         parser.delegate = self
@@ -57,6 +58,7 @@ public class CardCreationExtensionViewModel {
     public func createCard() {
         if let attributedText = attributedText {
             card = CardModel(front: attributedText, back: items)
+            // Save card to database and save it locally
         }
     }
     
@@ -64,6 +66,8 @@ public class CardCreationExtensionViewModel {
         if searchClient.delegate == nil {
             searchClient.delegate = self
         }
+        
+        mostRecentRange = range
         
         highlightText(atRange: range)
         
@@ -74,6 +78,19 @@ public class CardCreationExtensionViewModel {
         searchClient.search(forItem: searchTerm, language: .japanese)
     }
     
+    func add(item: TermProtocol) {
+        items.append(item)
+        if let mostRecentRange = mostRecentRange {
+           itemRanges.append(mostRecentRange)
+        }
+    }
+    
+    public func removeItem(atRow row: Int) {
+        items.remove(at: row)
+        removeHighlight(atRange: itemRanges[row])
+        itemRanges.remove(at: row)
+    }
+    
     func highlightText(atRange range: NSRange) {
         
         let highlightattributes = [NSForegroundColorAttributeName : UIColor.red]
@@ -82,6 +99,10 @@ public class CardCreationExtensionViewModel {
             attributedText.addAttributes(highlightattributes, range: range)
             delegate?.setFront(usingAttributedText: attributedText)
         }
+    }
+    
+    func removeHighlight(atRange: NSRange) {
+        
     }
     
     func setAttributedText(text: NSMutableAttributedString, toSize size: CGFloat) {
@@ -111,7 +132,7 @@ extension CardCreationExtensionViewModel: DictionarySearchDelegate {
     func searchDidComplete(terms: [TermProtocol]) {
         for term in terms {
             print("\(term.term)\n\n\(term.definition)\n\n")
-            items.append(term)
+            add(item: term)
         }
         delegate?.refresh()
     }

@@ -19,6 +19,7 @@
 		C9112ECF1EC4EED20066395F /* MockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9112ECE1EC4EED20066395F /* MockItem.swift */; };
 		C9112ED31EC50B460066395F /* FrontTextAttributeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9112ED21EC50B460066395F /* FrontTextAttributeSpec.swift */; };
 		C9112ED51EC50D380066395F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9112ED41EC50D380066395F /* Constants.swift */; };
+		C9112ED71EC516300066395F /* EditCardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9112ED61EC516300066395F /* EditCardSpec.swift */; };
 		C931F5121EC2B61F0070D86C /* TestStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C931F50F1EC2B49C0070D86C /* TestStruct.swift */; };
 		C931F5141EC2B8920070D86C /* CardCreationExtensionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BE1741EC280F1004F2743 /* CardCreationExtensionViewModel.swift */; };
 		C931F5151EC2B8970070D86C /* ExtensionItemParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BE1721EC27ADA004F2743 /* ExtensionItemParser.swift */; };
@@ -119,6 +120,7 @@
 		C9112ECE1EC4EED20066395F /* MockItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockItem.swift; sourceTree = "<group>"; };
 		C9112ED21EC50B460066395F /* FrontTextAttributeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontTextAttributeSpec.swift; sourceTree = "<group>"; };
 		C9112ED41EC50D380066395F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C9112ED61EC516300066395F /* EditCardSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCardSpec.swift; sourceTree = "<group>"; };
 		C931F50F1EC2B49C0070D86C /* TestStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStruct.swift; sourceTree = "<group>"; };
 		C946DAAB1EBA598F004FB76F /* memory-extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "memory-extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C946DAAD1EBA598F004FB76F /* CardCreationExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCreationExtensionViewController.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		C96EFF8B1EC2BA6100E21E22 /* SharedCodeTests */ = {
 			isa = PBXGroup;
 			children = (
+				C9112ED61EC516300066395F /* EditCardSpec.swift */,
 				C9112ED21EC50B460066395F /* FrontTextAttributeSpec.swift */,
 				C9F542D41EC2BD1D005573C3 /* CardCreationSpec.swift */,
 				C9112ECB1EC4EDC00066395F /* DefineJapaneseWordSpec.swift */,
@@ -779,6 +782,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9112ED71EC516300066395F /* EditCardSpec.swift in Sources */,
 				C9112ECF1EC4EED20066395F /* MockItem.swift in Sources */,
 				C9F542D51EC2BD1D005573C3 /* CardCreationSpec.swift in Sources */,
 				C9112ED31EC50B460066395F /* FrontTextAttributeSpec.swift in Sources */,

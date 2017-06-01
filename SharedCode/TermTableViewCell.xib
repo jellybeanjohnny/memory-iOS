@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,14 +18,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="土竜 (もぐら)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m06-Ao-UgK">
-                        <rect key="frame" x="8" y="11" width="103" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="土竜 (もぐら)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m06-Ao-UgK">
+                        <rect key="frame" x="8" y="11" width="304" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mole (esp. the small Japanese mole)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meK-8S-osD">
-                        <rect key="frame" x="8" y="40" width="278" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mole (esp. the small Japanese mole)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meK-8S-osD">
+                        <rect key="frame" x="8" y="40" width="304" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -33,8 +33,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="meK-8S-osD" firstAttribute="top" secondItem="m06-Ao-UgK" secondAttribute="bottom" constant="8" id="2WB-yD-zbv"/>
+                    <constraint firstAttribute="bottom" secondItem="meK-8S-osD" secondAttribute="bottom" constant="8.5" id="B9l-Qn-XFI"/>
+                    <constraint firstAttribute="trailing" secondItem="meK-8S-osD" secondAttribute="trailing" constant="8" id="IOP-8b-V4w"/>
                     <constraint firstItem="m06-Ao-UgK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="dPM-aq-pqp"/>
                     <constraint firstItem="m06-Ao-UgK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="hc0-wq-4MW"/>
+                    <constraint firstAttribute="trailing" secondItem="m06-Ao-UgK" secondAttribute="trailing" constant="8" id="t5J-ew-UaN"/>
                     <constraint firstItem="meK-8S-osD" firstAttribute="leading" secondItem="m06-Ao-UgK" secondAttribute="leading" id="t8R-s2-hkQ"/>
                 </constraints>
             </tableViewCellContentView>
@@ -42,7 +45,7 @@
                 <outlet property="definitionLabel" destination="meK-8S-osD" id="rPz-Nt-Hga"/>
                 <outlet property="termLabel" destination="m06-Ao-UgK" id="xUx-lx-Kc8"/>
             </connections>
-            <point key="canvasLocation" x="-36" y="7"/>
+            <point key="canvasLocation" x="-92" y="1"/>
         </tableViewCell>
     </objects>
 </document>

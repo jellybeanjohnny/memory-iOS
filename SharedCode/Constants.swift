@@ -10,4 +10,5 @@ import Foundation
 
 struct Constants {
     static let frontOfCardTextSize: CGFloat = 17.0
+    static let ngrokHTTPSURL = "https://8fe12814.ngrok.io"
 }

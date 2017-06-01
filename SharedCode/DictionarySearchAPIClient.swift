@@ -19,7 +19,7 @@ enum Language {
    case english, japanese
 }
 
-struct DictionarySearchAPIClient {
+class DictionarySearchAPIClient {
     weak var delegate: DictionarySearchDelegate?
     
     func search(forItem item: String, language: Language) {
@@ -48,7 +48,7 @@ struct DictionarySearchAPIClient {
         case .english:
             urlString = "NOT YET IMPLEMENTED"
         case .japanese:
-            urlString = "https://5bfa5988.ngrok.io/search?term="
+            urlString = "https://8fe12814.ngrok.io/search?term="
         }
         return urlString
     }
